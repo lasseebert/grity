@@ -10,7 +10,8 @@ ol.wizard
   li
     h3 Copy/paste
     p Copy/paste this snippet into the webpages you want to track:
-    textarea Snippet here
+    textarea
+      = render partial: "snippets/anonymous"
   li
     h3 Look at some nice charts
     p Go to http://grity.com/#{"<your-domain-name>"} to view fancy charts
