@@ -12,6 +12,8 @@ describe "javascript track pageview", js: true do
     pageview.session_id.should be_present
   end
 
+  pending "Get rid of the sleep"
+
   pending "different sessions" do
     # Should give different session_ids
   end

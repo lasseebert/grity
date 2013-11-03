@@ -9,8 +9,9 @@ class Api::PageviewsController < Api::BaseController
   end
 
   def pageview_params
-    result = params.permit :url, :session_id
+    result = params.permit :url
     result[:user_agent] = request.user_agent
+    result[:session_id] = request.session_options[:id]
     result
   end
 end
