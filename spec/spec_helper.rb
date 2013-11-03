@@ -8,6 +8,14 @@ require 'rspec/autorun'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
+Capybara.javascript_driver = :webkit
+Capybara.server do |app, port|
+  require 'rack/handler/thin'
+  Rack::Handler::Thin.run(app, :Port => port)
+end
+
+FakeWeb.allow_net_connect = %r[^https?://(localhost|127\.0\.0\.1)]
+
 RSpec.configure do |config|
   # ## Mock Framework
   #
@@ -39,3 +47,4 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
 end
+

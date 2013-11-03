@@ -35,9 +35,16 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'thin'
 
   gem 'guard-rails'
   gem 'guard-rspec'
+
+  gem 'fakeweb'
+
+  gem 'quiet_assets'
 end
 
 # Use ActiveModel has_secure_password
