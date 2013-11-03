@@ -9,6 +9,8 @@ class Api::PageviewsController < Api::BaseController
   end
 
   def pageview_params
-    params.permit :url, :session_id, :user_agent
+    result = params.permit :url, :session_id
+    result[:user_agent] = request.user_agent
+    result
   end
 end
