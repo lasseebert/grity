@@ -11,6 +11,7 @@ class Api::PageviewsController < Api::BaseController
 
   def pageview_params
     {
+      url: request.referer
     }
   end
 end
