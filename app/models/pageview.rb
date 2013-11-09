@@ -4,6 +4,7 @@ class Pageview
 
   field :url
   field :host
+  field :user_agent
 
   index host: 1
 
