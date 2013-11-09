@@ -5,6 +5,7 @@ class Pageview
   field :url
   field :host
   field :user_agent
+  field :session_id
 
   index host: 1
 
