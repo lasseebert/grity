@@ -1,1 +1,10 @@
-<script src="<%= asset_url "anonymous_snippet.js" %>"></script>
+<script type="text/javascript">
+  window._grity = window._grity || {}
+  window._grity["endpoint"] = '<%= root_url  %>'
+
+  var head = document.getElementsByTagName('head')[0];
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = '<%= asset_url "anonymous_snippet.js" %>';
+  head.appendChild(script);
+</script>

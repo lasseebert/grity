@@ -1,3 +1,3 @@
-$ ->
-  url = window.location.origin + window.location.pathname + window.location.search
-  $.post('/api/pageviews', { url: url })
+image = new Image()
+image.src = window._grity["endpoint"] + "api/track.gif"
+
