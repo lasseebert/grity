@@ -1,9 +1,11 @@
 session_key = "grity_session_id"
+options = window._grity
 
 track = ->
   session_id = get_session()
+  url = "#{options["endpoint"]}api/track.gif?session_id=#{session_id}"
   image = new Image()
-  image.src = window._grity["endpoint"] + "api/track.gif?session_id=#{session_id}"
+  image.src = url
 
 bake_cookie = (name, value) ->
   cookie = "#{name}=#{JSON.stringify(value)}"
@@ -23,7 +25,7 @@ get_session = ->
     bake_cookie(session_key, session_id)
     session_id
 
-s4 = -> Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+s4 = -> Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1)
 guid = -> "#{s4()}#{s4()}-#{s4()}-#{s4()}-#{s4()}-#{s4()}#{s4()}#{s4()}"
 
 track()
