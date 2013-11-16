@@ -25,6 +25,8 @@ module Grity
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    config.autoload_path = %W(#{config.root}/lib)
+
     # Skip auto generation of assets and helpers
     config.generators do |generate|
       generate.helper false

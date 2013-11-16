@@ -3,8 +3,6 @@ class @Domain
   constructor: (@id) ->
 
   fetch_stats: ->
-    [[
-      [1, 2],
-      [2, 4],
-      [3, 3]
-    ]]
+    deferred = $.Deferred()
+    $.get("/domains/#{@id}/stats").done (response) -> deferred.resolve response
+    deferred.promise()
