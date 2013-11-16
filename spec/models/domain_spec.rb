@@ -24,7 +24,9 @@ describe Domain do
     end
 
     context "nothing exists" do
-      it { should be_nil }
+      it "should raise" do
+        expect { subject }.to raise_error(Mongoid::Errors::DocumentNotFound)
+      end
     end
   end
 end

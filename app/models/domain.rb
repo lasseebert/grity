@@ -9,7 +9,9 @@ class Domain
   index({ host: 1 }, { unique: true })
 
   def self.get(host)
-    first_by_host(host) || create_if_stats_exists(host)
+    find_by host: host
+  rescue
+    create_if_stats_exists(host) || raise
   end
 
   def self.first_by_host(host)
