@@ -1,6 +1,9 @@
-class Host
+class Domain
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  field :name
+  field :host
+
+  def self.get(host)
+  end
 end

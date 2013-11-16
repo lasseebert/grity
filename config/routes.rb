@@ -6,6 +6,6 @@ Grity::Application.routes.draw do
     get "track" => "pageviews#track"
   end
 
-  get ':hostname' => "hosts#show", as: :host, :constraints => { hostname: /[^\/]+/ }
+  get ':host' => "domains#show", as: :domain, :constraints => { host: /[^\/]+/ }
 
 end

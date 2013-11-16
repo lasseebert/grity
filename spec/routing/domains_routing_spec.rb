@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe "routes to hosts" do
+describe "routes to domains" do
   describe "show" do
     it "routes to host by hostname" do
       expect(get: "/www.mydomain.com").to route_to(
-        controller: "hosts",
+        controller: "domains",
         action: "show",
-        hostname: "www.mydomain.com"
+        host: "www.mydomain.com"
       )
     end
 
