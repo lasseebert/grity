@@ -1,6 +1,14 @@
 require 'spec_helper'
 
 describe Domain do
+
+  describe "validation" do
+    it "should have unique host" do
+      create :domain, host: "foo"
+      build(:domain, host: "foo").should_not be_valid
+    end
+  end
+
   describe '.get' do
     subject { Domain.get host }
     let(:host) { "fnys.net" }
