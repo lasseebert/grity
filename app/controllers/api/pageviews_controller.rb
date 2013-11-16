@@ -10,8 +10,8 @@ class Api::PageviewsController < Api::BaseController
   end
 
   def pageview_params
-    params.permit(:session_id).merge \
-      url: request.referer,
-      user_agent: request.user_agent
+    {
+      url: request.referer
+    }
   end
 end

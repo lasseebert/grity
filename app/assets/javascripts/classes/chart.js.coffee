@@ -3,7 +3,6 @@ class @Chart
   constructor: (@element) ->
 
   plot: (data, options = {}) ->
-    console.log data
     options = $.extend true, {}, @default_options(), options
     @element.css("min-height", options["min-height"]) if options["min-height"]
     $.plot(@element, data, options)
