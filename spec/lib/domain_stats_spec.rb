@@ -11,10 +11,7 @@ describe DomainStats do
 
       result = DomainStats.get(Domain.get('fnys.net'), 2)
 
-      result.should =~ [
-        [ [1, 2], [2, 3] ],
-        [ [1, 2], [2, 2] ]
-      ]
+      result.length.should == 2
 
     end
   end
