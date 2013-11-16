@@ -5,3 +5,4 @@
 //= require jquery.flot
 //= require loader
 //= require_tree './pages'
+//= require_tree './classes'

@@ -1,2 +1,5 @@
 GRITY.register 'domains', 'show', ->
-  console.log "Hello world!"
+  domain = new Domain($('.domain').data('id'))
+  chart = new Chart($('#chart'))
+
+  chart.plot domain.fetch_stats()
