@@ -11,6 +11,17 @@ class @Chart
     {
       "min-height": 400,
       xaxis: {
-        mode: "time"
+        mode: "time",
+        autoscaleMargin: 0.0001
+      },
+      series: {
+        bars: {
+          show: true,
+          barWidth: 1000 * 60 * 60 * 24 * 0.8,
+          align: "center"
+        }
+      },
+      grid: {
+        hoverable: true
       }
     }
