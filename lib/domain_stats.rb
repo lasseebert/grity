@@ -1,6 +1,6 @@
 class DomainStats
 
-  def self.get(domain, days)
+  def self.get(domain)
     Pageview.map_reduce(map, reduce).out(inline: 1).map do |row|
       [row["_id"]["day"], row["value"]["count"].to_i]
     end

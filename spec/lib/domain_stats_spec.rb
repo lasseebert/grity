@@ -9,7 +9,7 @@ describe DomainStats do
       create :pageview, url: "http://fnys.net/page/1", created_at: Time.now
       create :pageview, url: "http://fnys.net/page/1", created_at: 1.day.ago
 
-      result = DomainStats.get(Domain.get('fnys.net'), 2)
+      result = DomainStats.get Domain.get 'fnys.net'
 
       result.length.should == 2
 
