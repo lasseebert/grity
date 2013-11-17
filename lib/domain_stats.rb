@@ -1,9 +1,19 @@
 class DomainStats
 
-  def self.get(domain)
-    Pageview.map_reduce(map, reduce).out(inline: 1).map do |row|
+  def self.by_date(domain)
+    Pageview.where(host: domain.host).map_reduce(map, reduce).out(inline: 1).map do |row|
       [row["_id"]["day"], row["value"]["count"].to_i]
-    end
+    end.sort
+  end
+
+  def self.by_path(domain)
+    result = Pageview.where(host: domain.host).collection.aggregate([
+      { "$project" => { "url" => "$url" } },
+      { "$group" => { "_id" => { "url" => "$url" }, "count" => { "$sum" => 1 } } }
+    ]).to_a
+    result.map! { |row| [ URI(row["_id"]["url"]).request_uri, row["count"] ] }
+    result.sort_by! { |point| -point[1] }
+    result
   end
 
   def self.map
