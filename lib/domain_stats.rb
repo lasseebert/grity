@@ -6,12 +6,13 @@ class DomainStats
     end.sort
   end
 
-  def self.by_path(domain)
-    result = Pageview.where(host: domain.host).collection.aggregate([
-      { "$project" => { "url" => "$url" } },
-      { "$group" => { "_id" => { "url" => "$url" }, "count" => { "$sum" => 1 } } }
-    ]).to_a
-    result.map! { |row| [ URI(row["_id"]["url"]).request_uri, row["count"] ] }
+  def self.by_url(domain)
+    result = Pageview.where(host: domain.host).map_reduce(
+      "function() { emit({ url: this.url }, { count: 1 }); }",
+      reduce
+    ).out(inline: 1).to_a
+
+    result.map! { |row| [ row["_id"]["url"], row["value"]["count"] ] }
     result.sort_by! { |point| -point[1] }
     result
   end

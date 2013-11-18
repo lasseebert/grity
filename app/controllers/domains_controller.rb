@@ -7,7 +7,10 @@ class DomainsController < ApplicationController
 
   def stats
     domain = Domain.find params[:id]
-    render json: DomainStats.by_date(domain)
+    render json: {
+      by_date: DomainStats.by_date(domain),
+      by_url: DomainStats.by_url(domain)
+    }
   end
 
 end
