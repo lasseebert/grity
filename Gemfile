@@ -41,6 +41,11 @@ group :development, :test do
   gem 'quiet_assets'
 end
 
+group :developmnt do
+  # Deployment
+  gem 'mina'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
