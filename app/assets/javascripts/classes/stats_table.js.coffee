@@ -3,7 +3,6 @@ class @StatsTable
   constructor: (@element) ->
 
   render: (data) ->
-    console.log data
     @element.html('')
     @add_row row for row in data
 

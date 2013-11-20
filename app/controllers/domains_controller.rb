@@ -1,7 +1,7 @@
 class DomainsController < ApplicationController
 
   def show
-    @domain = Domain.get params[:host]
+    @domain = Domain.get params[:hostname]
     raise Mongoid::Errors::DocumentNotFound, "No domain with host '#{params[:host]}'" unless @domain
   end
 

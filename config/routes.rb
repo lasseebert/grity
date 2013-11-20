@@ -12,6 +12,6 @@ Grity::Application.routes.draw do
     end
   end
 
-  get ':host' => "domains#show", as: :domain, :constraints => { host: /[^\/]+/ }
+  get ':hostname' => "domains#show", as: :domain, :constraints => { hostname: /[^\/]+/ }
 
 end

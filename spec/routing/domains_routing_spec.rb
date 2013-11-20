@@ -6,7 +6,7 @@ describe "routes to domains" do
       expect(get: "/www.mydomain.com").to route_to(
         controller: "domains",
         action: "show",
-        host: "www.mydomain.com"
+        hostname: "www.mydomain.com"
       )
     end
 

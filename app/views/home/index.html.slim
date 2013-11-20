@@ -1,33 +1,35 @@
-.hero-unit
-  h1 Grity &ndash; simple page tracking
-  p With Grity you can track your website with a single copy-paste.
+.jumbotron
+  h1 Grity &ndash; simple analytics
+  p: strong With Grity you can track the number of visitors on your website with a single copy-paste.
   ul
     li No signup needed
-    li Simple as hell
+    li Only simple tracking by date and by path
     li Nifty charts
+  p If you need anything more advanced than this, Grity is not for you.
 
-ol.wizard
+ol
   li
     h3 Copy/paste
     p Copy/paste this snippet into the webpages you want to track:
-    textarea
+    p Put it right before the ending <code>&lt;/body></code> tag
+    textarea cols="80" rows="12"
       = render partial: "snippets/snippet"
   li
     h3 Look at some nice charts
-    p Go to http://grity.com/#{"<your-domain-name>"} to view fancy charts
+    p Go to <strong>#{root_url}&lt;your-domain-name></strong> to view fancy charts
 
 hr
 
 .row
-  .span4
+  .col-md-4
     h2 No signup
     p No signup needed. All stats are public.
-  .span4
-    h2 Lorem
-    p Lorem ipsum
-  .span4
+  .col-md-4
     h2 Example
-    p Take a look at this example:
-    a href="#" Example
+    p Take a look at the stats for this site:
+    p = link_to domain_url(hostname: URI(root_url).host), domain_path(hostname: URI(root_url).host)
+  .col-md-4
+    h2 No old data
+    p All data are deleted after 90 days
 
 hr
