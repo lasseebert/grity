@@ -11,6 +11,7 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
+
 module Grity
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -26,6 +27,8 @@ module Grity
     # config.i18n.default_locale = :de
 
     config.autoload_paths += %W(#{config.root}/lib)
+
+    require config.root.join 'lib/grity/version'
 
     # Skip auto generation of assets and helpers
     config.generators do |generate|
