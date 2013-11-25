@@ -41,7 +41,7 @@ group :development, :test do
   gem 'quiet_assets'
 end
 
-group :developmnt do
+group :developemnt do
   # Deployment
   gem 'mina'
 end
