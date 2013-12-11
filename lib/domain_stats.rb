@@ -8,7 +8,7 @@ class DomainStats
 
   def self.by_url(domain)
     result = Pageview.where(host: domain.host).map_reduce(
-      "function() { emit({ url: this.url }, { count: 1 }); }",
+      "function() { emit({ url: this.url.replace(/\\/$/, '') }, { count: 1 }); }",
       reduce
     ).out(inline: 1).to_a
 

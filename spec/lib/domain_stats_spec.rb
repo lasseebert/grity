@@ -32,5 +32,12 @@ describe DomainStats do
       result[0].should == ["http://fnys.net/about", 3]
       result[1].should == ["http://fnys.net/page/1", 2]
     end
+
+    it "do not differ with trailing slashes" do
+      create :pageview, url: "http://fnys.net/about"
+      create :pageview, url: "http://fnys.net/about/"
+      result = DomainStats.by_url Domain.get 'fnys.net'
+      result.length.should == 1
+    end
   end
 end
