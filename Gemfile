@@ -42,6 +42,7 @@ group :development, :test do
 
   # JS test
   gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
+  gem 'guard-jasmine'
 end
 
 group :development do
