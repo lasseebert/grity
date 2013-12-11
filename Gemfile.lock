@@ -8,6 +8,13 @@ GIT
       origin (~> 1.0)
       tzinfo (~> 0.3.37)
 
+GIT
+  remote: https://github.com/bradphelan/jasminerice.git
+  revision: 091349c27343bfa728b8e5745675f9ddbb7d9699
+  specs:
+    jasminerice (0.1.0)
+      coffee-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -216,6 +223,7 @@ DEPENDENCIES
   flot-rails
   guard-rails
   guard-rspec
+  jasminerice!
   jquery-rails
   less-rails
   less-rails-bootstrap

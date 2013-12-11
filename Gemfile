@@ -39,6 +39,9 @@ group :development, :test do
   gem 'fakeweb'
 
   gem 'quiet_assets'
+
+  # JS test
+  gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
 end
 
 group :development do
