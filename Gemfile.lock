@@ -8,6 +8,13 @@ GIT
       origin (~> 1.0)
       tzinfo (~> 0.3.37)
 
+GIT
+  remote: https://github.com/bradphelan/jasminerice.git
+  revision: 091349c27343bfa728b8e5745675f9ddbb7d9699
+  specs:
+    jasminerice (0.1.0)
+      coffee-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -50,6 +57,8 @@ GEM
       json
     celluloid (0.15.2)
       timers (~> 1.1.0)
+    childprocess (0.3.9)
+      ffi (~> 1.0, >= 1.0.11)
     coderay (1.0.9)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -80,6 +89,12 @@ GEM
       lumberjack (~> 1.0)
       pry (>= 0.9.12)
       thor (>= 0.18.1)
+    guard-jasmine (1.19.0)
+      childprocess
+      guard (>= 2.0.0)
+      multi_json
+      thor
+      tilt
     guard-rails (0.4.7)
       guard (>= 0.2.2)
     guard-rspec (4.0.3)
@@ -214,8 +229,10 @@ DEPENDENCIES
   factory_girl_rails
   fakeweb
   flot-rails
+  guard-jasmine
   guard-rails
   guard-rspec
+  jasminerice!
   jquery-rails
   less-rails
   less-rails-bootstrap

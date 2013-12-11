@@ -12,5 +12,10 @@ class @StatsTable
     @element.append row_element
 
   add_cell: (row_element, value) ->
-    cell = $('<td>').text(value)
+    cell = $('<td>')
+    if /https?:\/\//.test value
+      cell.append($('<a>').attr('href', value).text(value))
+    else
+      cell.text(value)
+
     row_element.append cell
