@@ -4,7 +4,7 @@ describe "javascript track pageview", js: true do
 
   def wait_for_page_track(&block)
     start = Time.now
-    timeout = 5.seconds
+    timeout = 20.seconds
     count = Pageview.count
     yield
     while Time.now - start < timeout do
