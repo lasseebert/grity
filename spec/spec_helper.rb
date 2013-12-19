@@ -17,7 +17,7 @@ Capybara.server do |app, port|
   Rack::Handler::Thin.run(app, :Port => port)
 end
 
-FakeWeb.allow_net_connect = %r[^https?://(localhost|127\.0\.0\.1)]
+FakeWeb.allow_net_connect = %r[(^https?://(localhost|127\.0\.0\.1))|(^https?://coveralls\.io)]
 
 RSpec.configure do |config|
   # ## Mock Framework
